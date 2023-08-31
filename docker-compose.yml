@@ -9,5 +9,5 @@ services:
     volumes:
       - ./:/app
     ports:
-      - "8081:8081"
+      - "8080:8080"
     container_name: front_app

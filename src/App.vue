@@ -1,6 +1,6 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome Nurkhan! It is your project...!!!"/>
+  <HelloWorld msg="Welcome Nurkhan! How are you?" text="Let's make new code"/>
 </template>
 
 <script>

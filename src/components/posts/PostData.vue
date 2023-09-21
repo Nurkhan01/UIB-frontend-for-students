@@ -1,8 +1,10 @@
 <template>
   <div class="container">
     <div class="text-center">
+      <p>ID пользователя: {{post.userId}}</p>
       <p>ID поста: {{post.id}}</p>
       <p>Заголовок поста: {{post.title}}</p>
+      <p>Контент поста: {{post.body}}</p>
     </div>
   </div>
 </template>
@@ -14,7 +16,7 @@ export default {
   name: "PostData",
   data(){
     return {
-      baseUrl: 'https://my-json-server.typicode.com/typicode/demo/posts/',
+      baseUrl: 'https://jsonplaceholder.typicode.com/posts/',
       post : {}
     }
   },

@@ -1,10 +1,29 @@
 <template>
   <div>
-    <ul>
-      <li v-for="(post, index) in postsComputed" :key="index">id: {{ post.id }}, title: {{ post.title }}
-        <RouterLink :to="'post/' + post.id ">перейти</RouterLink>
-      </li>
-    </ul>
+    <h2>Посты преподавателей университета международного бизнеса</h2>
+    <table class="table table-dark table-striped">
+      <thead>
+      <tr>
+        <th scope="col">ID пользователя</th>
+        <th scope="col">ID поста</th>
+        <th scope="col">Заголовок поста</th>
+        <th scope="col">Контент поста</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr v-for="(post, index) in postsComputed" :key="index">
+        <td>{{post.userId}}</td>
+        <td>{{post.id}}</td>
+        <td>{{ post.title }}</td>
+        <td>{{post.body}} <RouterLink :to="'post/' + post.id ">...</RouterLink></td>
+      </tr>
+      </tbody>
+    </table>
+<!--    <ul>-->
+<!--      <li v-for="(post, index) in postsComputed" :key="index">id: {{ post.id }}, title: {{ post.title }}-->
+<!--        <RouterLink :to="'post/' + post.id ">перейти</RouterLink>-->
+<!--      </li>-->
+<!--    </ul>-->
   </div>
 </template>
 
@@ -16,7 +35,7 @@ export default {
   data() {
     return {
       text: 'some text',
-      baseUrl: 'https://my-json-server.typicode.com/typicode/demo/posts/',
+      baseUrl: 'https://jsonplaceholder.typicode.com/posts/',
       posts: [],
       countBeforeUpdate: 0,
       countUpdated: 0
@@ -63,7 +82,11 @@ export default {
     postsComputed() {
       let newPosts = []
       for (let key in this.posts) {
-        newPosts[key] = {id: this.posts[key].id, title: this.posts[key].title, url: this.baseUrl + this.posts[key].id}
+        newPosts[key] = {id: this.posts[key].id, title: this.posts[key].title,
+          url: this.baseUrl + this.posts[key].id,
+          body: this.posts[key].body.slice(0,20),
+          userId: this.posts[key].userId
+        }
       }
       return newPosts
     }

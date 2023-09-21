@@ -14,7 +14,7 @@
               <input type="text" class="form-control" v-model="lastName" :placeholder="choosenUser.lastName" id="lastName">
             </div>
             <div class="mb-3">
-              <label for="firstName" class="col-form-label">last name</label>
+              <label for="firstName" class="col-form-label">first name</label>
               <input type="text" class="form-control" v-model="firstName" :placeholder="choosenUser.firstName" id="firstName">
             </div>
           </form>

@@ -2,6 +2,7 @@ import {createRouter, createWebHistory} from 'vue-router'
 import HelloWorld from "@/components/HelloWorld.vue";
 import UsersData from "@/views/UsersData.vue";
 import PostsData from "@/views/PostsData.vue";
+import UserData from "@/components/users/UserData.vue";
 // 1. Define route components.
 // These can be imported from other files
 // const Home = { template: '<div>Home</div>' }
@@ -14,6 +15,7 @@ const routes = [
     { path: '/users', component: UsersData },
     { path: '/', component: HelloWorld },
     { path: '/posts', component: PostsData },
+    { path: '/user-data', component: UserData },
 ]
 
 // 3. Create the router instance and pass the `routes` option

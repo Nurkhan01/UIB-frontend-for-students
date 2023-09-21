@@ -18,9 +18,9 @@ export default {
   data() {
     return {
       usersArray: [
-        {id: 1, lastName: "Zhaksylyk", firstName: "Nurkhan"},
-        {id: 2, lastName: "Asimzhan", firstName: "Abylai"},
-        {id: 3, lastName: "Zhidebay", firstName: "Islambek"}
+        {id: 1, lastName: "Zhaksylyk", firstName: "Nurkhan", exp: "3 years", age : 26, position: "hard teacher", degree: "master", endUniversity: "Kaznu al-farabi"},
+        {id: 2, lastName: "Asimzhan", firstName: "Abylai", exp: "2 years", age: 26, position: "professor", degree: "master", endUniversity: "Kaznu al-farabi"},
+        {id: 3, lastName: "Zhidebay", firstName: "Islambek", exp: "1 year", age: 26, position: "teacher", degree: "master", endUniversity: "Kaznu al-farabi"}
       ]
     }
   },

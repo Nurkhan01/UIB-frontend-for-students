@@ -26,6 +26,12 @@
         </button>
       </div>
     </div>
+    <div v-for="(item, index) in items" :key="index">
+      <RouterLink :to="'/user-data?lastName='+item.lastName + '&firstName=' +item.firstName
+      + '&age=' + item.age + '&exp=' + item.exp  + '&degree=' + item.degree + '&endUniversity' + item.endUniversity">
+        {{ item.lastName }} {{ item.firstName }}
+      </RouterLink>
+    </div>
   </div>
   <UserModal :choosenUser="choosenUser" @change_user="changeUser"/>
 </template>
@@ -71,7 +77,7 @@ export default {
       this.isOpened = true
       this.choosenUser = this.items[this.checkedUsers[0]]
     },
-    changeUser(newUsersData){
+    changeUser(newUsersData) {
       this.$emit('parent_change_user', newUsersData)
     }
   }

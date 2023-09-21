@@ -1,8 +1,8 @@
 <template>
   <div>
     <ul>
-      <li v-for="(post, index) in postsComputed" :key="index">id: {{ post.id }}, title: {{ post.title }} <a
-          :href="post.url">{{post.url}}</a>
+      <li v-for="(post, index) in postsComputed" :key="index">id: {{ post.id }}, title: {{ post.title }}
+        <a :href="post.url">{{post.url}}</a>
       </li>
     </ul>
   </div>

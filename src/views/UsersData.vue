@@ -20,7 +20,10 @@ export default {
       usersArray: [
         {id: 1, lastName: "Zhaksylyk", firstName: "Nurkhan", exp: "3 years", age : 26, position: "hard teacher", degree: "master", endUniversity: "Kaznu al-farabi"},
         {id: 2, lastName: "Asimzhan", firstName: "Abylai", exp: "2 years", age: 26, position: "professor", degree: "master", endUniversity: "Kaznu al-farabi"},
-        {id: 3, lastName: "Zhidebay", firstName: "Islambek", exp: "1 year", age: 26, position: "teacher", degree: "master", endUniversity: "Kaznu al-farabi"}
+        {id: 3, lastName: "Zhidebay", firstName: "Islambek", exp: "1 year", age: 26, position: "teacher", degree: "master", endUniversity: "Kaznu al-farabi"},
+        {id: 4, lastName: "Yergeshov", firstName: "Bekzat", exp: "1 year", age: 26, position: "teacher", degree: "master", endUniversity: "Kaznu al-farabi"},
+        {id: 5, lastName: "Kerimbai", firstName: "Miras", exp: "1 year", age: 26, position: "teacher", degree: "master", endUniversity: "Kaznu al-farabi"},
+        {id: 6, lastName: "Gabdjanova", firstName: "Aizhan", exp: "1 year", age: 26, position: "teacher", degree: "master", endUniversity: "Kaznu al-farabi"},
       ]
     }
   },

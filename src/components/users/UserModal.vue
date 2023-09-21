@@ -8,12 +8,20 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body" v-if="Object.keys(choosenUser).length">
-          <input type="text" v-model="lastName">
-          <input type="text" v-model="firstName">
+          <form>
+            <div class="md-3">
+              <label for="lastName" class="col-form-label">last name</label>
+              <input type="text" class="form-control" v-model="lastName" :placeholder="choosenUser.lastName" id="lastName">
+            </div>
+            <div class="mb-3">
+              <label for="firstName" class="col-form-label">last name</label>
+              <input type="text" class="form-control" v-model="firstName" :placeholder="choosenUser.firstName" id="firstName">
+            </div>
+          </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" @click="changeData">Save changes</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @click="changeData">Save changes</button>
         </div>
       </div>
     </div>
@@ -35,6 +43,8 @@ export default {
   methods : {
     changeData(){
       this.$emit('change_user', {'lastName' : this.lastName, 'firstName' : this.firstName, 'id': this.choosenUser.id})
+      this.lastName = ''
+      this.firstName = ''
     }
   }
 }

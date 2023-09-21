@@ -3,6 +3,7 @@ import HelloWorld from "@/components/HelloWorld.vue";
 import UsersData from "@/views/UsersData.vue";
 import PostsData from "@/views/PostsData.vue";
 import UserData from "@/components/users/UserData.vue";
+import PostData from "@/components/posts/PostData";
 // 1. Define route components.
 // These can be imported from other files
 // const Home = { template: '<div>Home</div>' }
@@ -16,6 +17,7 @@ const routes = [
     { path: '/', component: HelloWorld },
     { path: '/posts', component: PostsData },
     { path: '/user-data', component: UserData },
+    { path: '/post/:id', component:  PostData},
 ]
 
 // 3. Create the router instance and pass the `routes` option

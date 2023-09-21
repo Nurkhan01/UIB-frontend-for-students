@@ -1,14 +1,11 @@
 <template>
-  <div class="card" style="width: 18rem;">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">{{lastName}} {{firstName}}</h5>
-      <p class="card-text">Возраст: {{age}}</p>
-      <p class="card-text">Опыт: {{exp}}</p>
-      <p class="card-text">Позиция: {{position}}</p>
-      <p class="card-text">Степень: {{degree}}</p>
-      <p class="card-text">Окончил: {{endUniversity}}</p>
-    </div>
+  <div class="text-center">
+    <h5>{{lastName}} {{firstName}}</h5>
+    <p>Возраст: {{age}}</p>
+    <p>Опыт: {{exp}}</p>
+    <p>Позиция: {{position}}</p>
+    <p>Степень: {{degree}}</p>
+    <p>Окончил: {{endUniversity}}</p>
   </div>
 </template>
 
@@ -25,6 +22,9 @@ export default {
       degree: this.$route.query.degree,
       endUniversity: this.$route.query.endUniversity,
     }
+  },
+  mounted() {
+    console.log(this.$route)
   }
 }
 </script>

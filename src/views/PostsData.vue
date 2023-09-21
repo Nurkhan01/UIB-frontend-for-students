@@ -2,7 +2,7 @@
   <div>
     <ul>
       <li v-for="(post, index) in postsComputed" :key="index">id: {{ post.id }}, title: {{ post.title }}
-        <a :href="post.url">{{post.url}}</a>
+        <RouterLink :to="'post/' + post.id ">перейти</RouterLink>
       </li>
     </ul>
   </div>
@@ -39,18 +39,18 @@ export default {
   beforeMount() {
     console.log(this.text, 'beforeMount')
   },
-  mounted() {
-    setTimeout(() => {
-      this.posts.push({id: 4, title: 'Post4'})
-    }, 10000)
-  },
-  beforeUpdate() {
-    console.log(this.countBeforeUpdate += 1, 'beforeUpdate')
-    this.posts.splice(0, 1)
-  },
-  updated() {
-    console.log(this.countUpdated +=1, 'updated')
-  },
+  // mounted() {
+  //   setTimeout(() => {
+  //     this.posts.push({id: 4, title: 'Post4'})
+  //   }, 10000)
+  // },
+  // beforeUpdate() {
+  //   console.log(this.countBeforeUpdate += 1, 'beforeUpdate')
+  //   this.posts.splice(0, 1)
+  // },
+  // updated() {
+  //   console.log(this.countUpdated +=1, 'updated')
+  // },
   beforeUnmount() {
     this.posts = []
     console.log('beforeUnmount')
@@ -60,9 +60,9 @@ export default {
   },
 
   computed: {
-    postsComputed(){
+    postsComputed() {
       let newPosts = []
-      for (let key in this.posts){
+      for (let key in this.posts) {
         newPosts[key] = {id: this.posts[key].id, title: this.posts[key].title, url: this.baseUrl + this.posts[key].id}
       }
       return newPosts

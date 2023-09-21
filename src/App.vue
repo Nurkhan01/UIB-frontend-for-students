@@ -1,17 +1,19 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome Nurkhan! How are you?" text="Let's make new code"/>
-  <UsersData />
+<!--  <HelloWorld msg="Welcome Nurkhan! How are you?" text="Let's make new code"/>-->
+<!--  <PostsData/>-->
+  <router-view/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import UsersData from "@/views/UsersData.vue";
+// import HelloWorld from './components/HelloWorld.vue'
+// import PostsData from "@/views/PostsData.vue";
+
 export default {
   name: 'App',
   components: {
-    HelloWorld,
-    UsersData
+    // HelloWorld,
+    // PostsData
   }
 }
 </script>

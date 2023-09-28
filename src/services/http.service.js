@@ -1,6 +1,6 @@
 import axios from 'axios';
 /** Default config for axios instance */
-const API_ENDPOINT = 'https://my-json-server.typicode.com/';
+const API_ENDPOINT = 'https://dummyjson.com/';
 let config = {
     baseURL: `${API_ENDPOINT}`
 };

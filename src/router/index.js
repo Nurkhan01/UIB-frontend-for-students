@@ -4,20 +4,17 @@ import UsersData from "@/views/UsersData.vue";
 import PostsData from "@/views/PostsData.vue";
 import UserData from "@/components/users/UserData.vue";
 import PostData from "@/components/posts/PostData";
-// 1. Define route components.
-// These can be imported from other files
-// const Home = { template: '<div>Home</div>' }
-// const About = { template: '<div>About</div>' }
+import ProductsData from "@/views/ProductsData.vue";
+import ProductData from "@/components/products/ProductData.vue";
 
-// 2. Define some routes
-// Each route should map to a component.
-// We'll talk about nested routes later.
 const routes = [
-    { path: '/users', component: UsersData },
     { path: '/', component: HelloWorld },
-    { path: '/posts', component: PostsData },
+    { path: '/users', component: UsersData },
     { path: '/user-data', component: UserData },
-    { path: '/post/:id', component:  PostData},
+    { path: '/posts', component: PostsData },
+    { path: '/products', component: ProductsData },
+    { path: '/product/:index', component: ProductData },
+    { path: '/post/:id/user/:userId', component:  PostData},
 ]
 
 // 3. Create the router instance and pass the `routes` option

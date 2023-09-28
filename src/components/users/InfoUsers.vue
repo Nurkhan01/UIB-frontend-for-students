@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2>Пользователи университета международного бизнеса</h2>
-<!--    <div class="container" id="users">-->
+<!--    <div class="container" id="products">-->
 <!--      <div class="row">-->
 <!--        <div class="col-md-4"></div>-->
 <!--        <div class="col-md-4 fs-3">-->

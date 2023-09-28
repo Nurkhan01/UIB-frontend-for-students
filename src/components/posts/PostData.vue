@@ -5,6 +5,7 @@
       <p>ID поста: {{post.id}}</p>
       <p>Заголовок поста: {{post.title}}</p>
       <p>Контент поста: {{post.body}}</p>
+      <div v-if="userId > 1">Пользователь с ID > 1</div>
     </div>
   </div>
 </template>
@@ -17,12 +18,16 @@ export default {
   data(){
     return {
       baseUrl: 'https://jsonplaceholder.typicode.com/posts/',
-      post : {}
+      post : {},
+      id: this.$route.params.id,
+      userId: this.$route.params.userId
     }
   },
   async created() {
+    console.log(this.$route)
+    console.log(this.baseUrl + this.id)
     try {
-      const {status, data} = await axios.get(this.baseUrl + this.$route.params.id);
+      const {status, data} = await axios.get(this.baseUrl + this.id);
       if (status === 200) {
         this.post = data
       }

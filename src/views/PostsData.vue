@@ -15,7 +15,7 @@
         <td>{{post.userId}}</td>
         <td>{{post.id}}</td>
         <td>{{ post.title }}</td>
-        <td>{{post.body}} <RouterLink :to="'post/' + post.id ">...</RouterLink></td>
+        <td>{{post.body}} <RouterLink :to="'post/' + post.id + '/user/' + post.userId">...</RouterLink></td>
       </tr>
       </tbody>
     </table>

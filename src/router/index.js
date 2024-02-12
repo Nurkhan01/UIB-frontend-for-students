@@ -15,6 +15,13 @@ const routes = [
     { path: '/products', component: ProductsData },
     { path: '/product/:index', component: ProductData },
     { path: '/post/:id/user/:userId', component:  PostData},
+    {
+        path: '/login',
+        component: () => import('@/views/LoginPage.vue'),
+    },    {
+        path: '/message',
+        component: () => import('@/views/WebSocket/MessageSocket'),
+    },
 ]
 
 // 3. Create the router instance and pass the `routes` option

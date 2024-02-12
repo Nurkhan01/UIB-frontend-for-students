@@ -14,11 +14,14 @@
             <RouterLink :to="'/users'" class="nav-link">Users</RouterLink>
           </li>
           <li class="nav-item">
-            <RouterLink :to="'/posts'" class="nav-link">Posts</RouterLink>
+            <RouterLink :to="'/message'" class="nav-link">Messages</RouterLink>
           </li>
-          <li class="nav-item">
-            <RouterLink :to="'/products'" class="nav-link">Products</RouterLink>
-          </li>
+<!--          <li class="nav-item">-->
+<!--            <RouterLink :to="'/posts'" class="nav-link">Posts</RouterLink>-->
+<!--          </li>-->
+<!--          <li class="nav-item">-->
+<!--            <RouterLink :to="'/products'" class="nav-link">Products</RouterLink>-->
+<!--          </li>-->
         </ul>
       </div>
     </div>

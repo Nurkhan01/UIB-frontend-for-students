@@ -60,11 +60,19 @@ export default {
       }
     },
     pusherLogic() {
-      window.Echo.channel('store_message_' + localStorage.getItem('user_id'))
-          .listen('.store_message', res => {
-            console.log(res)
-            this.messages.unshift(res.message);
-          })
+// Получение экземпляра канала Echo
+      const channel = window.Echo.channel('store_message.' + localStorage.getItem('user_id'));
+// Прослушивание события 'store_message'
+      channel.listen('.store_message', res => {
+        try {
+          console.log('gg')
+          this.messages.unshift(res.message);
+        } catch (error) {
+          console.error('An error occurred while processing the received message:', error);
+        }
+      });
+
+
       // Pusher.logToConsole = true;
       //
       // const pusher = new Pusher('bd2df3aea7bc4b5affcb', {

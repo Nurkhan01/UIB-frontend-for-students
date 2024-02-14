@@ -24,40 +24,46 @@ export default {
       body: '',
       messages: [],
       sendToUserId: localStorage.getItem('user_id') == 2 ? 1 : 2,
-      user_id: localStorage.getItem('user_id')
+      user_id: localStorage.getItem('user_id'),
+      socket: null
     };
   },
   created() {
-
-
-    // const ws = new WebSocket(wsUrl);
-    // Создаем новый экземпляр WebSocket
-    this.socket = new WebSocket('ws://127.0.0.1:6001/app/bd2df3aea7bc4b5affcb?protocol=7&client=js&version=8.4.0-rc2&flash=false');
-
-    // Обработчик события открытия соединения
-    this.socket.onopen = () => {
-      console.log('WebSocket соединение установлено');
-    };
-
-    // Обработчик события получения сообщения от сервера
-    this.socket.onmessage = (event) => {
-      const receivedData = JSON.parse(event.data);
-      console.log('Received data:', receivedData.data);
-      // Действия с полученными данными
-    };
-
-    // Обработчик события закрытия соединения
-    this.socket.onclose = () => {
-      console.log('WebSocket соединение закрыто');
-    };
-
-    // Обработчик события ошибки соединения
-    this.socket.onerror = (error) => {
-      console.error('WebSocket ошибка:', error);
-    };
-
-    this.getMessages()
     this.pusherLogic()
+    this.getMessages()
+    // // Создаем новый экземпляр WebSocket
+    // this.socket = new WebSocket('\n' +
+    //     'ws://127.0.0.1:6001/app/bd2df3aea7bc4b5affcb?protocol=7&client=js&version=8.4.0-rc2&flash=false');
+    //
+    // // Обработчик события открытия соединения
+    // this.socket.onopen = () => {
+    //   // Отправляем сообщение серверу для подписки на канал и событие
+    //   // const subscriptionData = {
+    //   //   event: 'subscribe',
+    //   //   channel: 'store-message',
+    //   //   event_name: 'StoreMessage'
+    //   // };
+    //   // this.socket.send(JSON.stringify(subscriptionData));
+    //   console.log('WebSocket соединение установлено');
+    // };
+    //
+    // // Обработчик события получения сообщения от сервера
+    // this.socket.onmessage = (event) => {
+    //   console.log(event)
+    //   const receivedData = JSON.parse(event.data);
+    //   console.log('Received data:', receivedData.data);
+    //   // Действия с полученными данными
+    // };
+    //
+    // // Обработчик события закрытия соединения
+    // this.socket.onclose = () => {
+    //   console.log('WebSocket соединение закрыто');
+    // };
+    //
+    // // Обработчик события ошибки соединения
+    // this.socket.onerror = (error) => {
+    //   console.error('WebSocket ошибка:', error);
+    // };
   },
   methods: {
     async sendMessage() {
@@ -88,12 +94,15 @@ export default {
       }
     },
     pusherLogic() {
-
-      // window.Echo.channel('store_message_1')
-      //     .listen('.store_message', res => {
-      //       console.log(res)
-      //       this.messages.unshift(res.message);
-      //     })
+      console.log('store-message.' + localStorage.getItem('user_id'))
+      window.Echo.channel('message')
+          .listen('StoreChatEvent', (event) => {
+            console.log(event)
+            this.messages.unshift(event.message);
+          })
+          .error((error) => {
+            console.error('WebSocket error:', error);
+          });
 
       // Pusher.logToConsole = true;
       //
@@ -103,8 +112,8 @@ export default {
       //   wsPort: 6001,
       //   forceTLS: false,
       // });
-      // const channel = pusher.subscribe('store_message_2' );
-      // channel.bind('store_message', (data) => {
+      // const channel = pusher.subscribe('message' );
+      // channel.bind('.chat', (data) => {
       //   console.log('hi')
       //   this.messages.unshift(data.message);
       // });

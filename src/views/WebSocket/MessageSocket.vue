@@ -95,7 +95,7 @@ export default {
     },
     pusherLogic() {
       console.log('store-message.' + localStorage.getItem('user_id'))
-      window.Echo.channel('message')
+      window.Echo.channel('message.'+ localStorage.getItem('user_id'))
           .listen('StoreChatEvent', (event) => {
             console.log(event)
             this.messages.unshift(event.message);

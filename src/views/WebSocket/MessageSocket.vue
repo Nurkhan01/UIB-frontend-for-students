@@ -15,7 +15,6 @@
 
 <script>
 import httpClient from "@/services/http.service"
-// import Pusher from 'pusher-js';
 
 export default {
   name: "MessageSocket",
@@ -31,39 +30,6 @@ export default {
   created() {
     this.pusherLogic()
     this.getMessages()
-    // // Создаем новый экземпляр WebSocket
-    // this.socket = new WebSocket('\n' +
-    //     'ws://127.0.0.1:6001/app/bd2df3aea7bc4b5affcb?protocol=7&client=js&version=8.4.0-rc2&flash=false');
-    //
-    // // Обработчик события открытия соединения
-    // this.socket.onopen = () => {
-    //   // Отправляем сообщение серверу для подписки на канал и событие
-    //   // const subscriptionData = {
-    //   //   event: 'subscribe',
-    //   //   channel: 'store-message',
-    //   //   event_name: 'StoreMessage'
-    //   // };
-    //   // this.socket.send(JSON.stringify(subscriptionData));
-    //   console.log('WebSocket соединение установлено');
-    // };
-    //
-    // // Обработчик события получения сообщения от сервера
-    // this.socket.onmessage = (event) => {
-    //   console.log(event)
-    //   const receivedData = JSON.parse(event.data);
-    //   console.log('Received data:', receivedData.data);
-    //   // Действия с полученными данными
-    // };
-    //
-    // // Обработчик события закрытия соединения
-    // this.socket.onclose = () => {
-    //   console.log('WebSocket соединение закрыто');
-    // };
-    //
-    // // Обработчик события ошибки соединения
-    // this.socket.onerror = (error) => {
-    //   console.error('WebSocket ошибка:', error);
-    // };
   },
   methods: {
     async sendMessage() {
@@ -103,20 +69,6 @@ export default {
           .error((error) => {
             console.error('WebSocket error:', error);
           });
-
-      // Pusher.logToConsole = true;
-      //
-      // const pusher = new Pusher('bd2df3aea7bc4b5affcb', {
-      //   cluster: 'ap2',
-      //   wsHost: '127.0.0.1',
-      //   wsPort: 6001,
-      //   forceTLS: false,
-      // });
-      // const channel = pusher.subscribe('message' );
-      // channel.bind('.chat', (data) => {
-      //   console.log('hi')
-      //   this.messages.unshift(data.message);
-      // });
     }
   }
 }

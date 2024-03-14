@@ -14,10 +14,10 @@ window.Pusher = Pusher
 window.Echo = new Echo({
     broadcaster: 'pusher',
     key: 'bd2df3aea7bc4b5affcb',
-    cluster: 'ml2',
-    wsHost: '127.0.0.1',
-    wsPort: 6001,
-    // wssPort: 6001,
+    cluster: 'ap2',
+    wsHost: '192.168.12.207',
+    wsPort: 30601,
+    wssPort: 30601,
     forceTLS: false, // Использование ws вместо wss
     enabledTransports: ['ws']
 });
